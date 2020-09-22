@@ -1,0 +1,31 @@
+.menu {
+    width: 70vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 0 5% 0;
+
+    &__logo {
+        height: 100px;
+        width: 200px;
+    }
+
+    &__list {
+        display: flex;
+        font-size: 20px;
+        list-style-type: none;
+
+        & li:not(:last-child) {
+            padding-right: 50px;
+        }
+
+        & li:nth-last-child(2) {
+            padding-right: 20px;
+        }
+
+        & li:hover {
+            cursor: pointer;
+        }
+    }
+}

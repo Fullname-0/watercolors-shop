@@ -1,0 +1,41 @@
+.gallery {
+    width: 70vw;
+    margin: auto;
+
+    &__heading {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+
+    &__box {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        grid-auto-rows: 360px;
+        align-items: center; 
+        justify-items: center;
+    }
+
+    &__image {
+        width: 300px;
+        height: 300px;
+        background-color: grey;
+    }
+
+    &__button {
+        text-align: center;
+        padding: 4% 0 4% 0;
+
+        & button {
+            padding: 7px;
+            border: 1px solid black;
+            background-color: #fff;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
