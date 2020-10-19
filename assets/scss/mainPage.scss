@@ -1,0 +1,38 @@
+.container {
+    height: 100%;
+    width: 98%;
+    margin: 0 1% 0 1%;
+    overflow: hidden;
+
+
+    &__pictures {
+        position: relative;
+
+        & img {
+            height: 800px;
+            width: 100%;
+            filter: brightness(75%);
+            transform: scale(1);
+            transition: all .8s cubic-bezier(.27,.53,.63,.95);
+
+            &:hover {
+                cursor: pointer;
+                filter: brightness(70%);
+                transform: scale(1.04);
+            }
+        }
+
+        & h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 2px;
+            pointer-events: none;
+        }
+    }
+}

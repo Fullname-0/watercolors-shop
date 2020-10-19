@@ -8,6 +8,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
+      { href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap', rel: 'stylesheet' }
     ]
   },
 
@@ -16,6 +17,7 @@ export default {
     '~/assets/scss/base.scss',
     '~/assets/scss/menu.scss',
     '~/assets/scss/firstPageGallery.scss',
+    '~/assets/scss/mainPage.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -32,6 +34,11 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
   ],
+
+  // Active class and routers
+  router: {
+    linkActiveClass: 'active-link',
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

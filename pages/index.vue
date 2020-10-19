@@ -1,13 +1,13 @@
 <template>
   <div>
     <Menu />
-    <Gallery />
+    <Main />
   </div>
 </template>
 
 <script>
 import Menu from '~/components/Menu.vue';
-import Gallery from '~/components/First-page-gallery.vue';
+import Main from '~/components/Main-page.vue';
 export default {
   data() {
     return {
@@ -15,7 +15,7 @@ export default {
   },
   components: {
     Menu,
-    Gallery,
+    Main,
   },
 }
 </script>
