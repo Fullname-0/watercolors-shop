@@ -1,18 +1,20 @@
 .container {
-    height: 100%;
-    width: 98%;
-    margin: 0 1% 0 1%;
-    overflow: hidden;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 
     &__pictures {
         position: relative;
+        width: 98%;
+        margin: 0% 1% 2% 1%;
+        overflow: hidden;
 
         & img {
-            height: 800px;
+            height: 810px;
             width: 100%;
             filter: brightness(75%);
-            transform: scale(1);
+            transform: scale(1) scaleY(1.01);
             transition: all .8s cubic-bezier(.27,.53,.63,.95);
 
             &:hover {
@@ -33,6 +35,27 @@
             font-weight: 300;
             letter-spacing: 2px;
             pointer-events: none;
+        }
+    }
+
+    &__description {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding: 5% 0 5% 0;
+
+        & h2 {
+            font-size: 28px;
+            margin-bottom: 3%;
+            font-weight: 300;
+        }
+
+        & p {
+            font-size: 16px;
+            font-weight: 300;
+            text-align: center;
         }
     }
 }

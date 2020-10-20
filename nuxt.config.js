@@ -1,4 +1,5 @@
 export default {
+  mode: 'universal',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'watercolors',
@@ -18,8 +19,11 @@ export default {
     '~/assets/scss/menu.scss',
     '~/assets/scss/firstPageGallery.scss',
     '~/assets/scss/mainPage.scss',
+    '~/assets/scss/subscribe.scss',
+    '~/assets/scss/footer.scss',
   ],
 
+  layout: 'default',
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
@@ -29,6 +33,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/style-resources',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -42,5 +47,15 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    styleResources: {
+      scss: [
+        './assets/scss/mixins.scss',
+      ]
+    },
+    /*
+    ** You can extend webpack config here
+    */
+    extend (config, ctx) {
+    }
   }
 }
