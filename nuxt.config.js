@@ -1,5 +1,4 @@
 export default {
-  mode: 'universal',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'watercolors',
@@ -17,7 +16,6 @@ export default {
   css: [
     '~/assets/scss/base.scss',
     '~/assets/scss/menu.scss',
-    '~/assets/scss/firstPageGallery.scss',
     '~/assets/scss/mainPage.scss',
     '~/assets/scss/subscribe.scss',
     '~/assets/scss/footer.scss',
@@ -38,11 +36,13 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    '@nuxtjs/axios',
   ],
 
   // Active class and routers
   router: {
     linkActiveClass: 'active-link',
+    linkExactActiveClass: 'exact-link',
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
