@@ -15,8 +15,14 @@
     "core-js": "^3.6.5",
     "node-sass": "^4.14.1",
     "nuxt": "^2.14.5",
+    "nuxt-gallery": "^2.0.0",
     "sass-loader": "^10.0.2",
-    "vue-scrollto": "^2.20.0"
+    "vue-carousel": "^0.18.0",
+    "vue-gallery": "^2.0.1",
+    "vue-light-gallery": "^1.0.1",
+    "vue-product-zoomer": "^3.0.1",
+    "vue-slick-carousel": "^1.0.6",
+    "vue-zoomer": "^0.3.6"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0"

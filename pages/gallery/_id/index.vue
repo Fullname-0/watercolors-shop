@@ -52,9 +52,14 @@ export default {
         justify-content: center;
         align-content: center;
 
-        & img {
+        &__image {
             height: 400px;
-            width: 500px;
+            width: 500px; 
+
+            & .scroller-at-bottom.preview-box {
+                height: 400px !important;
+                width: 500px !important;   
+            }
         }
 
         &__details {
