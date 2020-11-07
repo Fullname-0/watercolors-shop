@@ -13,13 +13,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-    '~/assets/scss/base.scss',
-    '~/assets/scss/menu.scss',
-    '~/assets/scss/mainPage.scss',
-    '~/assets/scss/subscribe.scss',
-    '~/assets/scss/footer.scss',
-  ],
+  css: [],
 
   layout: 'default',
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -37,6 +31,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     '@nuxtjs/axios',
+    ['vue-scrollto/nuxt', { duration: 2000, easing: [0.16, 1, 0.3, 1] }],
   ],
 
   // Active class and routers
@@ -45,11 +40,16 @@ export default {
     linkExactActiveClass: 'exact-link',
   },
 
+  axios: {
+    baseURL: process.env.API_URL || 'https://mojeakwarele.pl/api/v1', // Used as fallback if no runtime config is provided
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     styleResources: {
       scss: [
         './assets/scss/mixins.scss',
+        './assets/scss/variables.scss',
       ]
     },
     /*

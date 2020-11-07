@@ -1,33 +1,30 @@
 import Vuex from 'vuex';
-import axios from 'axios';
 
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            titlesPaintings: []
+            data: ''
         },
         mutations: {
-            setPaintings(state, images) {
-                state.titlesPaintings = images;
-                // return state.titlesPaintings.splice(0, 2);
+            setData(state, data) {
+                state.data = data;
             }
         },
         actions: {
-            nuxtServerInit(vuexContext, context) {
-                return axios.get('https://mojeakwarele.pl/api/v1/catalogue/paintings/page/1')
-                .then(res => {
-                    const titles = res.data
-                    vuexContext.commit('setPaintings', titles)
-                })
-                .catch( e => context.error(e));
+            async nuxtServerInit(vuexContext, context) {
+                await context.$axios.$get('catalogue/paintings/page/1')
+                    .then(res => {
+                        vuexContext.commit('setData', res);
+                    })
+                    .catch( e => context.error(e));
             },
-            setPaintings(vuexContext, images) {
-                vuexContext.commit('setPaintings', images);
+            setData(vuexContext, data) {
+                vuexContext.commit('setData', data);
             }
         },
         getters: {
-            titlesPaintings(state) {
-                return state.titlesPaintings
+            paintings(state) {
+                return state.data.paintings;
             }
         }
     })

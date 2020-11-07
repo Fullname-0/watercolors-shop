@@ -1,26 +1,45 @@
 <template>
-  <div>
-    <Menu />
-    <Nuxt />
-    <Footer />
-  </div>
+<div>
+    <Menu/>
+    <Header/>
+    <Nuxt/>
+    <Footer/>
+</div>
 </template>
 
 <script>
-import Menu from '~/components/Menu.vue';
-import Footer from '~/components/Footer.vue';
-export default {
-  data() {
-    return {
-    }
-  },
-  components: {
-    Menu,
-    Footer,
-  },
-}
+  import Header from '~/components/Header-Footer/Header.vue';
+  import Menu from '~/components/Header-Footer/Menu.vue';
+  import Footer from '~/components/Header-Footer/Footer.vue';
+  
+  export default {
+      components: {
+          Header,
+          Footer,
+          Menu
+      },
+  }
 </script>
 
-<style>
+<style lang="scss">
+  *,
+  *:before,
+  *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  } 
+
+  body {
+      font-weight: 400;
+      font-family: $font-primary;
+      width: 90%;
+      margin: auto;
+  }
 
 </style>

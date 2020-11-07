@@ -1,0 +1,80 @@
+<template>
+  <div class="gallery" id="recommended">
+    <div class="gallery__heading"> 
+        <h2>Polecane</h2>
+        <svg width="101" height="1" viewBox="0 0 101 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0.964294" y1="0.5" x2="100.964" y2="0.5" stroke="black"/>
+        </svg>
+    </div>
+    <div class="gallery__box">
+        <CategoryTile v-for="(tile, index) in tiles" 
+            :key="index"
+            :imageUrl="tile.imageUrl" 
+            :title="tile.title"/>
+    </div>
+  </div>
+</template>
+
+<script>
+    import CategoryTile from '~/components/WelcomePage/CategoryTile.vue';
+
+    export default {
+
+        //TODO: Change to dynamic load from api 
+
+        data() {
+            return {
+                tiles: [
+                    {
+                        title: 'Kartki',
+                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                    },
+                    {
+                        title: 'Obrazy',
+                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                    },
+                    {
+                        title: 'Malunki',
+                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                    },
+                    {
+                        title: 'Różne',
+                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                    },
+                ]
+            }
+        },
+        components: {
+            CategoryTile
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+  
+  .gallery {
+      padding-top: 2%;
+
+      &__heading {
+          width: 100%;
+          text-align: center;
+          padding-bottom: 4rem;
+
+          & h2 {
+              font-size: 2.8rem;
+              font-weight: 300;
+          }
+      }
+
+      &__box {
+          width: 80%;
+          height: auto;
+          margin: auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+          gap: 5rem;
+          align-items: center; 
+          justify-items: center;
+      }
+  }
+</style>

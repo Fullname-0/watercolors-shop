@@ -1,4 +1,20 @@
-.container {
+<template>
+  <div class="container">
+    <a href="#" class="container__pictures" v-scroll-to="'#recommended'">
+        <img src="~/static/img/pic1.jpg" alt="photo">
+        <h2>Poznaj moje akwarele</h2>
+    </a>
+    <div class="container__description">
+        <h2>Robimy najlepsze akwarele bardzo smaczne</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa animi, 
+          nemo voluptatum mollitia architecto, magni voluptate maxime molestiae facilis 
+          quaerat sed qui illo commodi!</p>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,12 +22,11 @@
 
     &__pictures {
         position: relative;
-        width: 98%;
-        margin: 0% 1% 2% 1%;
+        margin: 5% 0 2% 0;
         overflow: hidden;
 
         & img {
-            height: 810px;
+            height: auto;
             width: 100%;
             filter: brightness(75%);
             transform: scale(1) scaleY(1.01);
@@ -35,6 +50,7 @@
             font-weight: 300;
             letter-spacing: 2px;
             pointer-events: none;
+            text-align: center;
         }
     }
 
@@ -50,6 +66,7 @@
             font-size: 28px;
             margin-bottom: 3%;
             font-weight: 300;
+            text-align: center;
         }
 
         & p {
@@ -58,4 +75,5 @@
             text-align: center;
         }
     }
-}
+  }  
+</style>

@@ -1,28 +1,22 @@
 <template>
   <div>
-    <Main />
-    <FirstPageGallery />
-    <Subscribe />
+    <Main/>
+    <FirstPageGallery/>
+    <Subscribe/>
   </div>
 </template>
 
 <script>
-import Main from '~/components/Main-page.vue';
-import FirstPageGallery from '~/components/FirstPageGallery.vue';
-import Subscribe from '~/components/Subscribe.vue';
-export default {
-  data() {
-    return {
-    }
-  },
-  components: {
-    Main,
-    FirstPageGallery,
-    Subscribe,
-  },
-}
+  import Main from '~/components/WelcomePage/Main-page.vue';
+  import FirstPageGallery from '~/components/WelcomePage/FirstPageGallery.vue';
+  import Subscribe from '~/components/WelcomePage/Subscribe.vue';
+
+  export default {
+    // scrollToTop: true,
+    components: {
+      Main,
+      FirstPageGallery,
+      Subscribe,
+    },
+  }
 </script>
-
-<style>
-
-</style>

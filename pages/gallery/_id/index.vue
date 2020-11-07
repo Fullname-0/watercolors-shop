@@ -1,3 +1,40 @@
+<template>
+<div class="container">
+    <h2>{{ loadedProduct.title }}</h2>
+    <div class="box">
+        <img src="~/static/img/pic1.jpg" :alt="'Photo number ' + loadedProduct.id">
+        <div class="box__details">
+            <p>{{ loadedProduct.description }}</p>
+            <ul>
+                <li>Wysokość: {{ loadedProduct.height }} cm</li>
+                <li>Szerokość: {{ loadedProduct.width }} cm</li>
+                <li>Cena: {{ loadedProduct.price }} zł</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            loadedProduct: []
+        }
+    },
+    asyncData(context) {
+        return $axios.$get('/catalogue/paintings/' + context.params.id)
+            .then(res => {
+                return {
+                    loadedProduct: res.data
+                }
+            })
+            .catch(e => context.error(e));
+    },
+}
+</script>
+
+<style lang="scss" scoped>
 .container {
     display: flex;
     flex-direction: column;
@@ -46,3 +83,4 @@
         }
     }
 }
+</style>
