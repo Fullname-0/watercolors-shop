@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Menu/>
+    <StickyHeader/>
     <Header/>
     <Nuxt/>
     <Footer/>
@@ -9,14 +9,14 @@
 
 <script>
   import Header from '~/components/Header-Footer/Header.vue';
-  import Menu from '~/components/Header-Footer/Menu.vue';
+  import StickyHeader from '~/components/Header-Footer/StickyHeader.vue';
   import Footer from '~/components/Header-Footer/Footer.vue';
   
   export default {
       components: {
           Header,
           Footer,
-          Menu
+          StickyHeader
       },
   }
 </script>
@@ -33,6 +33,10 @@
   html {
     box-sizing: border-box;
     font-size: 62.5%;
+
+    @include respond(tab-land) {
+      font-size: 50%;
+    }
   } 
 
   body {
@@ -40,6 +44,13 @@
       font-family: $font-primary;
       width: 90%;
       margin: auto;
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: $font-primary-sc;
+      }
   }
 
 </style>

@@ -1,23 +1,48 @@
 <template>
-    <div class="menu-container">
-        <div class="menu__logo">
+  <nav  :class="{'sticky-header-expanded': isExpanded}" class="sticky-header">
+    <div class="sticky-header-container">
+        <div class="sticky-header__logo">
             <Logo/>
         </div>
-        <ul class="menu__list">
+        <ul class="sticky-header__list">
             <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
             <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
             <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
             <li>
                 <nuxt-link to='/basket' exact>Koszyk</nuxt-link>
-                <span class="menu__list__notification">8</span>
+                <span class="sticky-header__list__notification">8</span>
             </li>
         </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
     import Logo from '~/components/Common/Logo.vue';
 
     export default {
+        data() {
+            return {
+                isExpanded: false
+            }
+        },
+        methods: {
+            handleScroll () {
+                if (process.client && !this.$store.getters.isDrawerExpanded) { 
+                    this.isExpanded = window.scrollY >= 200;
+                }
+            }
+        },
+        created () {
+            if (process.client) { 
+                window.addEventListener('scroll', this.handleScroll);
+            }
+        },
+        destroyed () {
+            if (process.client) { 
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        },
         components: {
             Logo
         }   
@@ -25,20 +50,45 @@
 </script>
 
 <style lang="scss" scoped>
-    .menu {
+    .sticky-header {
+        position: fixed;
+        transform: translateX(-5%) translateY(-5rem);
+        width: 100%;
+        margin: 0;
+        height: 5rem;
+        background-color: $color-white;
+        box-shadow: 0 -1rem 2rem $color-primary;
+        margin-bottom: 2rem;
+        z-index: 50;
+        transition: all .5s;
+        
+        &-expanded {
+            transform: translateX(-5%) translateY(0);
+        }
+
         &-container {
-            width: 100%;
+            width: 72%;
+            margin: auto;
             height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             z-index: 50;
+
+            @include respond(phone) {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         &__logo {
-            height: 10rem;
-            width: 20rem;
+            height: 3rem;
+            width: 12rem;
             cursor: pointer;
+
+            @include respond(phone) {
+                display: none;
+            }
         }
 
         &__list {

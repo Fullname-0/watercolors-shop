@@ -63,6 +63,7 @@
           & h2 {
               font-size: 2.8rem;
               font-weight: 300;
+              font-family: $font-primary-sc;
           }
       }
 
@@ -75,6 +76,11 @@
           gap: 5rem;
           align-items: center; 
           justify-items: center;
+          overflow: hidden;
+
+          @include respond(phone) {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          }
       }
   }
 </style>

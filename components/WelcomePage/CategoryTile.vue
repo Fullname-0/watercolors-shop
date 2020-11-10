@@ -27,6 +27,10 @@
         height: 30rem;
         overflow: hidden;
 
+        @include respond(phone) {
+            height: 20rem;
+        }
+
         & img {
             width: 100%;
             height: 100%;

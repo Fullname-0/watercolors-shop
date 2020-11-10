@@ -3,11 +3,15 @@ import Vuex from 'vuex';
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            data: ''
+            data: '',
+            drawerExtended: false
         },
         mutations: {
             setData(state, data) {
                 state.data = data;
+            },
+            changeDrawerState(state) {
+                state.drawerExtended = !state.drawerExtended;
             }
         },
         actions: {
@@ -25,6 +29,9 @@ const createStore = () => {
         getters: {
             paintings(state) {
                 return state.data.paintings;
+            },
+            isDrawerExpanded(state) {
+                return state.drawerExtended;
             }
         }
     })

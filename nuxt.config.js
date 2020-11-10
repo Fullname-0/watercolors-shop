@@ -8,7 +8,10 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap', rel: 'stylesheet' }
+      { href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap', rel: 'stylesheet' },
+      { href: 'https://fonts.googleapis.com/css2?family=Cormorant:wght@300;600;700&display=swap', rel: 'stylesheet' },
+      { href: 'https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap', rel: 'stylesheet' },
+      { href: 'https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;600;700&display=swap', rel: 'stylesheet' }
     ]
   },
 
@@ -50,6 +53,7 @@ export default {
       scss: [
         './assets/scss/mixins.scss',
         './assets/scss/variables.scss',
+        './assets/scss/media.scss',
       ]
     },
     /*

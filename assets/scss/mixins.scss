@@ -1,7 +1,7 @@
 @mixin h3-to-subscribe {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 300;
-    text-transform: uppercase;
+    font-family: $font-primary-sc;
 }
 
 @mixin h4-and-p-to-subscribe {
@@ -17,5 +17,5 @@
     left: 0;
     height: 1px;
     width: 100%;
-    background-color: $color-black;
+    background-color: $color-primary;
 }
