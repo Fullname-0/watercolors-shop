@@ -21,6 +21,7 @@ export default {
   layout: 'default',
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/notifier.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -34,8 +35,15 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/recaptcha',
     ['vue-scrollto/nuxt', { duration: 2000, easing: [0.16, 1, 0.3, 1] }],
   ],
+
+  recaptcha: {
+    hideBadge: true, // Hide badge element (v3 & v2 via size=invisible)
+    siteKey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', // Site key for requests
+    version: 3, // Version
+  },
 
   // Active class and routers
   router: {
@@ -44,7 +52,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.API_URL || 'https://mojeakwarele.pl/api/v1', // Used as fallback if no runtime config is provided
+    baseURL: process.env.API_URL || 'https://api.mojeakwarele.pl', // Used as fallback if no runtime config is provided
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

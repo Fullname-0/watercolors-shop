@@ -1,4 +1,6 @@
 import Vuex from 'vuex';
+import snackbar from './Modules/snackbar';
+import modal from './Modules/modal';
 
 const createStore = () => {
     return new Vuex.Store({
@@ -16,7 +18,7 @@ const createStore = () => {
         },
         actions: {
             async nuxtServerInit(vuexContext, context) {
-                await context.$axios.$get('catalogue/paintings/page/1')
+                await context.$axios.$get('/catalogue/page/1')
                     .then(res => {
                         vuexContext.commit('setData', res);
                     })
@@ -33,6 +35,10 @@ const createStore = () => {
             isDrawerExpanded(state) {
                 return state.drawerExtended;
             }
+        },
+        modules: {
+            snackbar,
+            modal
         }
     })
 }

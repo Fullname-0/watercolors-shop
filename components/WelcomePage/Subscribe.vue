@@ -1,21 +1,66 @@
 <template>
-      <div class="subscribe-box">
-          <a href="https://www.instagram.com/mojeakwarele/" target="_blank" class="subscribe-box__instagram">
-              <h3>Instagram</h3>
-              <h4>@mojeakwarele</h4>
-          </a>
-          <div class="subscribe-box__newsletter">
-              <h3>Newsletter</h3>
-              <p>dołącz, jeżeli lubisz niespodzianki.</p>
-          </div>
-          <div class="subscribe-box__input">
-                <input id="subscribe" type="email" placeholder="Twój e-mail">
-          </div>
-          <div class="subscribe-box__button">
-              <button type="submit" value="Subscribe">Dołącz</button>
-          </div>
-      </div>
+      <form class="subscribe-box" @submit="joinNewsletter">
+            <a href="https://www.instagram.com/mojeakwarele/" target="_blank" class="subscribe-box__instagram">
+                <h3>Instagram</h3>
+                <h4>@mojeakwarele</h4>
+            </a>
+            <div class="subscribe-box__newsletter">
+                <h3>Newsletter</h3>
+                <p>dołącz, jeżeli lubisz niespodzianki.</p>
+            </div>
+            <div class="subscribe-box__input">
+                <input type="email" v-model="email" placeholder="Twój e-mail" required>
+            </div>
+
+            <div class="subscribe-box__button">
+                <button type="submit">Dołącz</button>
+            </div>
+            <Modal>
+                <recaptcha
+                    @error="onError"
+                    @success="onSuccess"
+                    @expired="onExpired"/>
+                <div>
+                    This site is protected by reCAPTCHA and the Google <br>
+                    <a href="https://policies.google.com/privacy">Privacy Policy</a> and 
+                    <a href="https://policies.google.com/terms">Terms of Service</a> apply
+                </div>
+                </Modal>
+      </form>
 </template>
+
+<script>
+    import Modal from '~/components/Common/Modal.vue';
+
+    export default {
+        data() {
+            return {
+                email: '',
+            }
+        },
+        methods: {
+            joinNewsletter (e) {
+                e.preventDefault();
+                this.$store.commit('openModal');
+            },
+            onError() {
+                this.$store.commit('closeModal');
+                this.$notifier.showMessage({content: 'Spróbuj ponownie później'});
+            },
+            async onSuccess() {
+                // await this.$axios.$post('/mail/newsletter?email=' + this.email);
+                setTimeout(() => {
+                    this.$store.commit('closeModal');
+                    this.$notifier.showMessage({content: 'Dziękujemy za dołączenie do newslettera'});
+                }, 900);
+            },
+            onExpired() {
+                this.$store.commit('closeModal');
+                this.$notifier.showMessage({content: 'Spróbuj ponownie później'});
+            }
+        },   
+    }
+</script>
 
 <style lang="scss" scoped>
     .subscribe-box {

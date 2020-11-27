@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/recaptcha": "^0.6.2",
     "axios": "^0.21.0",
     "babel-loader": "^8.1.0",
     "core-js": "^3.6.5",

@@ -4,6 +4,7 @@
     <Header/>
     <Nuxt/>
     <Footer/>
+    <Snackbar/>
 </div>
 </template>
 
@@ -11,12 +12,14 @@
   import Header from '~/components/Header-Footer/Header.vue';
   import StickyHeader from '~/components/Header-Footer/StickyHeader.vue';
   import Footer from '~/components/Header-Footer/Footer.vue';
+  import Snackbar from '~/components/Common/Snackbar.vue';
   
   export default {
       components: {
           Header,
           Footer,
-          StickyHeader
+          StickyHeader,
+          Snackbar
       },
   }
 </script>

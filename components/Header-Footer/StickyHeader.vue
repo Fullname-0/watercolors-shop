@@ -1,20 +1,24 @@
 <template>
-  <nav  :class="{'sticky-header-expanded': isExpanded}" class="sticky-header">
-    <div class="sticky-header-container">
-        <div class="sticky-header__logo">
-            <Logo/>
-        </div>
-        <ul class="sticky-header__list">
-            <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
-            <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
-            <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
-            <li>
-                <nuxt-link to='/basket' exact>Koszyk</nuxt-link>
-                <span class="sticky-header__list__notification">8</span>
-            </li>
-        </ul>
-    </div>
-  </nav>
+    <transition>
+        <nav  v-if="isExpanded" class="sticky-header">
+            <div class="sticky-header-container">
+                <div class="sticky-header__logo">
+                    <Logo/>
+                </div>
+                <ul class="sticky-header__list">
+                    <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
+                    <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
+                    <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
+                    <!--
+                    <li>
+                        <nuxt-link to='/basket' exact>Koszyk</nuxt-link>
+                        <span class="sticky-header__list__notification">8</span>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </nav>
+    </transition>
 </template>
 
 <script>
@@ -52,19 +56,15 @@
 <style lang="scss" scoped>
     .sticky-header {
         position: fixed;
-        transform: translateX(-5%) translateY(-5rem);
+        transform: translateX(-5%);
         width: 100%;
         margin: 0;
         height: 5rem;
         background-color: $color-white;
-        box-shadow: 0 -1rem 2rem $color-primary;
+        box-shadow: $main-shadow;
         margin-bottom: 2rem;
         z-index: 50;
         transition: all .5s;
-        
-        &-expanded {
-            transform: translateX(-5%) translateY(0);
-        }
 
         &-container {
             width: 72%;
@@ -94,7 +94,7 @@
         &__list {
             position: relative;
             display: flex;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 300;
             list-style-type: none;
 
@@ -152,5 +152,21 @@
                 }
             }
         } 
-  }  
+    }
+
+    .v-enter,
+    .v-leave-to {
+        transform: translateX(-5%) translateY(-5rem);
+    }
+
+    .v-enter-to,
+    .v-leave {
+        transform: translateX(-5%) translateY(0);
+    }
+
+    .v-enter-active, 
+    .v-leave-active{
+        transition: all .5s ease-out;
+    }  
+
 </style>

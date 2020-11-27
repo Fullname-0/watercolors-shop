@@ -26,8 +26,9 @@
         overflow: hidden;
 
         img {
-            height: auto;
+            // height: auto
             width: 100%;
+            height: 60vw;
             filter: brightness(75%);
             transform: scale(1) scaleY(1.01);
             transition: all .8s cubic-bezier(.27,.53,.63,.95);

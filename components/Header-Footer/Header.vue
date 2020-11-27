@@ -9,10 +9,12 @@
                 <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
                 <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
                 <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
+                <!--
                 <li>
                     <nuxt-link to='/basket' exact>Koszyk</nuxt-link>
                     <span class="header__list__notification">8</span>
                 </li>
+                -->
             </ul>
         </div>
   </nav>
