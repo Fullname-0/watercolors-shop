@@ -1,9 +1,8 @@
 <template>
-  <nav  :class="{'menu-expanded': isExpanded}" class="menu">
     <div class="menu-container">
-        <nuxt-link to="/">
-            <img class="menu__logo" src="~/static/img/loginio.jpg" alt="Logo sklepu">        
-        </nuxt-link>
+        <div class="menu__logo">
+            <Logo/>
+        </div>
         <ul class="menu__list">
             <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
             <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
@@ -13,57 +12,22 @@
                 <span class="menu__list__notification">8</span>
             </li>
         </ul>
-    </div>
-  </nav>
 </template>
 
 <script>
+    import Logo from '~/components/Common/Logo.vue';
+
     export default {
-        data() {
-            return {
-                isExpanded: false
-            }
-        },
-        methods: {
-            handleScroll () {
-                if (process.client) { 
-                    this.isExpanded = window.scrollY >= 200;
-                }
-            }
-        },
-        created () {
-            if (process.client) { 
-                window.addEventListener('scroll', this.handleScroll);
-            }
-        },
-        destroyed () {
-            if (process.client) { 
-                window.removeEventListener('scroll', this.handleScroll);
-            }
-        }
+        components: {
+            Logo
+        }   
     }
 </script>
 
 <style lang="scss" scoped>
     .menu {
-        position: fixed;
-        transform: translateX(-5%) translateY(-5rem);
-        width: 100%;
-        margin: 0;
-        height: 5rem;
-        background-color: $color-white;
-        box-shadow: 0 -1rem 2rem $color-black;
-        margin-bottom: 2rem;
-        z-index: 50;
-        transition: all .5s;
-        
-        &-expanded {
-            transform: translateX(-5%) translateY(0);
-        }
-
         &-container {
-            width: 72%;
-            margin: auto;
+            width: 100%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -72,8 +36,8 @@
         }
 
         &__logo {
-            height: 5rem;
-            width: 10rem;
+            height: 10rem;
+            width: 20rem;
             cursor: pointer;
         }
 
@@ -129,7 +93,7 @@
                 & a:visited,
                 & a:active {
                     text-decoration: none;
-                    color: $color-black;
+                    color: $color-primary;
                 }
 
                 .active-link::before,

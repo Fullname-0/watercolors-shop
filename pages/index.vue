@@ -12,7 +12,6 @@
   import Subscribe from '~/components/WelcomePage/Subscribe.vue';
 
   export default {
-    // scrollToTop: true,
     components: {
       Main,
       FirstPageGallery,
