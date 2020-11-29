@@ -1,12 +1,10 @@
 <template>
   <nav class="header" id="header">
-        <div class="header__logo">
-            <Logo/>        
-        </div>
+        <Logo/>
         <img src="~/static/icons/menu.svg" alt="Menu button" class="header__drawer-button" @click="handleDrawer">
         <div class="header__list__container" :class="{'header__list__container--expanded' : $store.getters.isDrawerExpanded}" @click="handleDrawer"> 
             <ul class="header__list" :class="{'header__list--expanded' : $store.getters.isDrawerExpanded}">
-                <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
+                <DropMenu/>
                 <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
                 <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
                 <!--
@@ -22,26 +20,42 @@
 
 <script>
     import Logo from '~/components/Common/Logo.vue';
+    import DropMenu from '~/components/Header-Footer/DropMenu.vue';
 
     export default {
+        data() {
+            return {
+                dropMenu: false
+            }
+        },
         methods: {
+            away() {
+                this.dropMenu = false;
+            },
             handleDrawer() {
                 this.$store.commit('changeDrawerState');
             }
         },
+        watch:{
+            $route (to, from){
+                this.dropMenu = false;
+            }
+        }, 
         components: {
             Logo
-        }   
+        },
     }
 </script>
 
 <style lang="scss" scoped>
+
+
     .header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 1% 0;
-        border-bottom: 1px solid $color-grey-light;
+        border-bottom: 1px solid $color-grey;
 
         &__drawer-button {
             display: none;
@@ -62,23 +76,15 @@
             }
         }
 
-        &__logo {
-            height: 7rem;
-            width: 28rem;
-            cursor: pointer;
-
-            @include respond(tab-port) {
-                height: 5rem;
-                width: 20rem;
-            }
-        }
-
         &__list {
             position: relative;
             display: flex;
             font-size: 2.2rem;
             font-weight: 300;
             list-style-type: none;
+            z-index: 1;
+            background-color: $color-white;
+
 
             @include respond(tab-port-small) {
                 position: fixed;
@@ -123,10 +129,27 @@
                 position: absolute;
                 top: 1.7rem;
                 right: -1rem;
+                z-index: 3;
 
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+
+            &__icon {
+                height: 1.6rem;
+                width: 1.6rem;
+                position: absolute;
+                top: 1.4rem;
+                right: -1.2rem;
+                z-index: 3;
+                fill: $color-primary;
+                transform: scale(0.8);
+                transition: all .2s ease-out;
+
+                &--rotate {
+                    transform: translateY(.3rem) scale(0.8) rotateX(180deg);
+                }
             }
 
             li {
@@ -179,6 +202,9 @@
                 }
             }
         } 
+
   }
+
+    @include drop-menu-animation;
 
 </style>

@@ -1,10 +1,12 @@
 <template>
-    <div class="logo">
-        <img v-if="!footer" class="logo" src="~/static/img/logo.png" alt="Logo sklepu" @click="logoClick">        
+    <div>
+        <div v-if="!footer" class="header__logo" :class="{'header__logo--mini':mini}" @click="logoClick">
+            Moje Akwarele
+        </div>
         <picture v-if="footer" @click="logoClick">
-            <source  class="logo" media="(max-width: 750px)" srcset="~/static/img/logo-small.png"> 
-            <source class="logo" media="(min-width: 751px)" srcset="~/static/img/logo.png"> 
-            <img class="logo" src="~/static/img/logo-small.png" alt="logo"> 
+            <source  class="footer__logo" media="(max-width: 750px)" srcset="~/static/img/logo-small.png"> 
+            <source class="footer__logo" media="(min-width: 751px)" srcset="~/static/img/logo.png"> 
+            <img class="footer__logo" src="~/static/img/logo-small.png" alt="logo"> 
         </picture>
     </div>
 </template>
@@ -13,6 +15,10 @@
     export default {
         props: {
             footer: {
+                type: Boolean,
+                default: false
+            },
+            mini: {
                 type: Boolean,
                 default: false
             }
@@ -30,7 +36,39 @@
 </script>
 
 <style lang="scss" scoped>
-    .logo {
+
+    .header__logo {
+        height: 7rem;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: .8rem;
+        color: $color-primary;
+        font-weight: 300;
+        font-family: $font-primary-sc;
+        cursor: pointer;
+
+        @include respond(tab-port) {
+            height: 5rem;
+            font-size: 3.5rem;
+        }
+
+        @include respond(phone) {
+            font-size: 2rem;
+            letter-spacing: .6rem;
+        }
+
+        &--mini {
+            font-size: 2.5rem;
+
+            @include respond(tab-port-small) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .footer__logo {
         height: 100%;
         width: 100%;
         max-height: 100%;

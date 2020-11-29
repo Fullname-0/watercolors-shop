@@ -89,7 +89,7 @@
             @include respond(tab-port) {
                 border-right: none;
                 padding: 2rem;
-                border-bottom: 1px solid $color-grey-light;
+                border-bottom: 1px solid $color-grey;
             }
             
             h3,

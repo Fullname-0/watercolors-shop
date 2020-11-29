@@ -2,11 +2,9 @@
     <transition>
         <nav  v-if="isExpanded" class="sticky-header">
             <div class="sticky-header-container">
-                <div class="sticky-header__logo">
-                    <Logo/>
-                </div>
+                <Logo :mini="true"/>
                 <ul class="sticky-header__list">
-                    <li><nuxt-link to='/gallery' exact>Galeria</nuxt-link></li>
+                    <DropMenu :mini="true"/>
                     <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
                     <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
                     <!--
@@ -23,6 +21,7 @@
 
 <script>
     import Logo from '~/components/Common/Logo.vue';
+    import DropMenu from '~/components/Header-Footer/DropMenu.vue';
 
     export default {
         data() {
@@ -75,9 +74,8 @@
             justify-content: space-between;
             z-index: 50;
 
-            @include respond(phone) {
-                width: 100%;
-                justify-content: center;
+            @include respond(tab-port-small) {
+                width: 90%;
             }
         }
 
@@ -94,7 +92,7 @@
         &__list {
             position: relative;
             display: flex;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 300;
             list-style-type: none;
 

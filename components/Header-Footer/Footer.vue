@@ -33,7 +33,7 @@
 
 <style lang="scss" scoped>
     footer {
-        border-top: 1px solid $color-grey-light;
+        border-top: 1px solid $color-grey;
     }
 
     .footer-box {

@@ -19,3 +19,22 @@
     width: 100%;
     background-color: $color-primary;
 }
+
+@mixin drop-menu-animation {
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+
+    .v-enter-to,
+    .v-leave {
+        opacity: 1;
+        transform: transalteY(0);
+    }
+
+    .v-enter-active, 
+    .v-leave-active{
+        transition: all .5s ease-out;
+    }
+}
