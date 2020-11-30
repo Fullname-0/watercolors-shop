@@ -1,9 +1,12 @@
 <template>
   <nav class="header" id="header">
         <Logo/>
-        <img src="~/static/icons/menu.svg" alt="Menu button" class="header__drawer-button" @click="handleDrawer">
-        <div class="header__list__container" :class="{'header__list__container--expanded' : $store.getters.isDrawerExpanded}" @click="handleDrawer"> 
-            <ul class="header__list" :class="{'header__list--expanded' : $store.getters.isDrawerExpanded}">
+        <input type="checkbox" v-model="drawer" class="menu__checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu__button" @click="handleDrawer">
+            <span class="menu__icon">&nbsp;</span>
+        </label>
+        <transition>
+            <ul class="header__list" :class="{'header__list--expanded':$store.getters.isDrawerExpanded}">
                 <DropMenu/>
                 <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
                 <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
@@ -14,7 +17,7 @@
                 </li>
                 -->
             </ul>
-        </div>
+        </transition>
   </nav>
 </template>
 
@@ -25,7 +28,8 @@
     export default {
         data() {
             return {
-                dropMenu: false
+                dropMenu: false,
+                drawer: false,
             }
         },
         methods: {
@@ -39,6 +43,10 @@
         watch:{
             $route (to, from){
                 this.dropMenu = false;
+                if(this.$store.getters.isDrawerExpanded) {
+                    this.$store.commit('changeDrawerState');
+                }
+                this.drawer = false;
             }
         }, 
         components: {
@@ -48,7 +56,6 @@
 </script>
 
 <style lang="scss" scoped>
-
 
     .header {
         display: flex;
@@ -68,6 +75,7 @@
                 padding: 1.5rem 0 1.5rem 1.5rem;
                 width: 5rem;
                 height: 5rem;
+                z-index: 5000;
 
                 &:hover {
                     opacity: 0.7;
@@ -83,39 +91,28 @@
             font-weight: 300;
             list-style-type: none;
             z-index: 1;
-            background-color: $color-white;
-
 
             @include respond(tab-port-small) {
                 position: fixed;
                 top: 0;
+                right: -100%;
                 flex-direction: column;
-                padding: 20% 0;
-                justify-content: space-around;
+                justify-content: center;
                 align-items: center;
                 font-family: $font-primary;
                 margin-left: 1rem;
-                right: -100%;
-                width: 30rem;
+                width: 100%;
                 height: 100%;
-                background-color: $color-white;
+                background-color: $color-secondary-light;
                 box-shadow: 0 1rem 2rem $color-primary;
                 z-index: 5000;
                 transition: all .5s;
 
                 &--expanded {
-                    right: 0;
-                }    
-
-                &__container--expanded {
-                    position: fixed;
                     top: 0;
                     right: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba($color-white, 0.6);
-                    z-index: 4000;
-                }     
+                }
+
             }   
 
             &__notification {
@@ -158,17 +155,22 @@
 
                 @include respond(tab-port-small) {
                     font-size: 3rem;
+                    padding: 2.5rem 0;
+                }
+
+                @include respond(phone) {
+                    font-size: 2.5rem;
+                    padding: 2rem 0;
                 }
 
                 &::before {
-                    @include link-underscore;
-
                     transform: scaleX(0);
                     transform-origin: 100% 50%;
                     transition: transform .5s cubic-bezier(.28,.38,0,.81);
 
                     @include respond(tab-port-small) {
                         transform: scaleX(1);
+                        // @include link-underscore;
                     }
                 }
 
@@ -199,12 +201,105 @@
                 .active-link::before,
                 .exact-link::before {
                     @include link-underscore;
+
+                    @include respond(tab-port-small) {
+                        background-color: transparent;
+                    }
                 }
             }
         } 
-
   }
 
+    .menu {
+
+        &__checkbox {
+            display: none;
+        }
+
+        @include respond(tab-port-small) {
+
+            &__button {
+                z-index: 5001;
+                margin-top: 1.2rem;
+                cursor: pointer;
+            }
+            
+            &__checkbox:checked ~ &__background {
+                transform: scale(80);
+            }
+
+            &__checkbox:checked ~ &__nav {
+                opacity: 1;
+                width: 100%;
+            }
+
+            &__icon {
+                position: relative;
+
+                &,
+                &::before,
+                &::after {
+                    width: 3rem;
+                    height: 1px;
+                    background-color: $color-grey-dark;
+                    display: inline-block;
+                 
+                    @include respond(phone) {
+                        width: 2.5rem;
+                        height: 1px;
+                    }
+                } 
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    transition: all .2s;
+                }
+
+                &::before {
+                    top: -0.8rem;
+                }
+                
+                &::after {
+                    top: 0.8rem
+                }
+            }
+
+            &__checkbox:checked + &__button &__icon{
+                background-color: transparent;
+            }
+            
+            &__checkbox:checked + &__button &__icon::after{
+                transform: rotate(135deg);
+                top: 0;
+            }
+
+            &__checkbox:checked + &__button &__icon::before{
+                transform: rotate(-315deg);
+                top: 0;
+            }
+        }
+    }
+
     @include drop-menu-animation;
+
+    @include respond(tab-port-small) {
+        .v-enter,
+        .v-leave-to {
+            transform: translateX(100%);
+        }
+
+        .v-enter-to,
+        .v-leave {
+            transform: transalteX(0);
+        }
+
+        .v-enter-active, 
+        .v-leave-active{
+            transition: transform .7s ease-out;
+        }
+    }
 
 </style>

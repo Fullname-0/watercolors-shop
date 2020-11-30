@@ -19,27 +19,24 @@
     import CategoryTile from '~/components/WelcomePage/CategoryTile.vue';
 
     export default {
-
-        //TODO: Change to dynamic load from api 
-
         data() {
             return {
                 tiles: [
                     {
-                        title: 'Kartki',
-                        imageUrl: '/_nuxt/static/img/pic1.jpg'
-                    },
-                    {
                         title: 'Obrazy',
-                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                        imageUrl: '/_nuxt/static/img/pic2.jpg'
                     },
                     {
-                        title: 'Malunki',
-                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                        title: 'Metryczki',
+                        imageUrl: '/_nuxt/static/img/pic2.jpg'
                     },
                     {
-                        title: 'Różne',
-                        imageUrl: '/_nuxt/static/img/pic1.jpg'
+                        title: 'Zakładki',
+                        imageUrl: '/_nuxt/static/img/pic2.jpg'
+                    },
+                    {
+                        title: 'Indywidualne',
+                        imageUrl: '/_nuxt/static/img/pic2.jpg'
                     },
                 ]
             }

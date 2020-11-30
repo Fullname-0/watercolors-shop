@@ -1,20 +1,17 @@
 import Vuex from 'vuex';
 import snackbar from './Modules/snackbar';
 import modal from './Modules/modal';
+import drawer from './Modules/drawer';
 
 const createStore = () => {
     return new Vuex.Store({
         state: {
             data: '',
-            drawerExtended: false
         },
         mutations: {
             setData(state, data) {
                 state.data = data;
             },
-            // changeDrawerState(state) {
-            //     state.drawerExtended = !state.drawerExtended;
-            // }
         },
         actions: {
             async nuxtServerInit(vuexContext, context) {
@@ -32,13 +29,12 @@ const createStore = () => {
             paintings(state) {
                 return state.data.paintings;
             },
-            isDrawerExpanded(state) {
-                return state.drawerExtended;
-            }
+
         },
         modules: {
             snackbar,
-            modal
+            modal,
+            drawer
         }
     })
 }

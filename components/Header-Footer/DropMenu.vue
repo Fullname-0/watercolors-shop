@@ -1,9 +1,11 @@
 <template>
     <li>
-        <nuxt-link to='/gallery' :event="' '" @click.native="dropMenu = !dropMenu">Galeria</nuxt-link>
-        <svg class="icon" :class="{'icon--rotate': dropMenu, 'icon--mini': mini}">
-            <use xlink:href="~/static/icons/sprite.svg#icon-chevron-small-down"></use>
-        </svg>
+        <div class="main-button">
+            <nuxt-link  to='/gallery' :event="' '" @click.native="dropMenu = !dropMenu">Galeria</nuxt-link>
+            <svg class="icon" :class="{'icon--rotate': dropMenu, 'icon--mini': mini}">
+                <use xlink:href="~/static/icons/sprite.svg#icon-chevron-small-down"></use>
+            </svg>
+        </div>
         <transition>
             <ul class="drop-menu" :class="{'drop-menu--mini':mini}" v-if="dropMenu" v-on-clickaway="away">
                 <li class="drop-menu__item">
@@ -51,6 +53,7 @@
         }
     }
 </script>
+
 <style lang="scss" scoped>
 
     li {
@@ -62,8 +65,14 @@
         }
     }
 
+    .main-button {
+        display: flex;
+        align-items: center;
+    }
+
     .drop-menu {
         position: absolute;
+        top: 3rem;
         font-size: 1.8rem;
         font-weight: 300;
         padding: 0;
@@ -80,12 +89,30 @@
         &--mini {
             font-size: 1.5rem;
             margin-top: 1rem;
+            top: 2.5rem;
+        }
+
+        @include respond(tab-port-small) {
+            top: 2rem;
+            position: relative;
+            align-items: center;
+            background-color: transparent;
+            z-index:1;
+            box-shadow: none;
+        }
+
+        @include respond(phone) {
+            top: 1rem;
         }
 
         &__item {
 
             &:hover {
                 background-color: $color-grey-light;
+                
+                @include respond(tab-port-small) {
+                    background-color: transparent;
+                }
             }
 
             &:last-child {
@@ -98,16 +125,26 @@
                 padding: 1rem 5rem 1rem 2rem;
                 display: block;
                 text-align: left;
+                
+                @include respond(tab-port-small) {
+                    padding: 1rem 0;
+                }
+
+            }
+
+            a:active {
+                @include respond(tab-port-small) {
+                    background-color: $color-secondary;
+                }
             }
         }
     }
 
+    @include drop-menu-animation;
+
     .icon {
         height: 1.9rem;
         width: 1.9rem;
-        position: absolute;
-        top: 1.4rem;
-        right: -1.5rem;
         z-index: 3;
         fill: $color-primary;
         transform: scale(0.9);
@@ -127,6 +164,11 @@
             &--rotate {
                 transform: translateY(.2rem) scale(0.6) rotateX(180deg);
             }
+        }
+
+        @include respond(tab-port-small) {
+            display: none;
+            height: 0;
         }
     }
 
