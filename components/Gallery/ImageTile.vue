@@ -8,7 +8,6 @@
 <script>
 
   export default {
-    watchQuery: true,
     name: 'Images',
     props: {
       id: {
@@ -30,7 +29,7 @@
     },
     methods: {
       onLoadProduct() {
-        this.$router.push('/shop/' + this.id)
+        this.$router.push('/gallery/' + this.id)
       }
     }
   }

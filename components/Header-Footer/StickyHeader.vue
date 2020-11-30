@@ -1,6 +1,6 @@
 <template>
     <transition>
-        <nav  v-if="isExpanded" class="sticky-header">
+        <nav v-if="isExpanded" class="sticky-header">
             <div class="sticky-header-container">
                 <Logo :mini="true"/>
                 <ul class="sticky-header__list">
@@ -26,7 +26,7 @@
     export default {
         data() {
             return {
-                isExpanded: false
+                isExpanded: false,
             }
         },
         methods: {
@@ -36,7 +36,7 @@
                 }
             }
         },
-        created () {
+        mounted () {
             if (process.client) { 
                 window.addEventListener('scroll', this.handleScroll);
             }
@@ -115,6 +115,11 @@
 
             li {
                 position: relative;
+
+                @include respond(phone) {
+                    align-self: center;
+                    text-align: center;
+                }
 
                 &::before {
                     @include link-underscore;

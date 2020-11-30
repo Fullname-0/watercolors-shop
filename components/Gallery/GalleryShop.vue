@@ -41,7 +41,6 @@
 </script>
 
 <style lang="scss" scoped>
-
   .gallery {
       width: 70vw;
       margin: auto;

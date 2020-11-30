@@ -12,9 +12,9 @@ const createStore = () => {
             setData(state, data) {
                 state.data = data;
             },
-            changeDrawerState(state) {
-                state.drawerExtended = !state.drawerExtended;
-            }
+            // changeDrawerState(state) {
+            //     state.drawerExtended = !state.drawerExtended;
+            // }
         },
         actions: {
             async nuxtServerInit(vuexContext, context) {
@@ -22,7 +22,7 @@ const createStore = () => {
                     .then(res => {
                         vuexContext.commit('setData', res);
                     })
-                    .catch( e => context.error(e));
+                    .catch( e => console.log(e));
             },
             setData(vuexContext, data) {
                 vuexContext.commit('setData', data);
