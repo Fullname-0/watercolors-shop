@@ -9,16 +9,19 @@
         <transition>
             <ul class="drop-menu" :class="{'drop-menu--mini':mini}" v-if="dropMenu" v-on-clickaway="away">
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery'>Obrazy</nuxt-link>
+                    <nuxt-link to='/gallery/paintings'>Obrazy</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery'>Malunki</nuxt-link>
+                    <nuxt-link to='/gallery/birthstats'>Metryczki</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery'>Różne</nuxt-link>
+                    <nuxt-link to='/gallery/bookmarks'>Zakładki</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery'>Wszystkie</nuxt-link>
+                    <nuxt-link to='/gallery/individual'>Indywidualne</nuxt-link>
+                </li>
+                <li class="drop-menu__item">
+                    <nuxt-link to='/gallery/all'>Wszystkie</nuxt-link>
                 </li>
             </ul>
         </transition>
@@ -68,6 +71,11 @@
     .main-button {
         display: flex;
         align-items: center;
+
+        .active-link::before,
+        .exact-link::before {
+            @include link-underscore;
+        }
     }
 
     .drop-menu {

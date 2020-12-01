@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Dziękujemy za dotychczasową współpracę Kuuuuuuurwaa!!!</h2>
+    <h2>Dziękujemy za dotychczasową współpracę.</h2>
     <p>Twój mail został usunięty z naszej bazy newslettera, pozdrawiamy!</p>
   </div>
 </template>

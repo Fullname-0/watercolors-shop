@@ -10,6 +10,7 @@
         <CategoryTile v-for="(tile, index) in tiles" 
             :key="index"
             :imageUrl="tile.imageUrl" 
+            :link="tile.link"
             :title="tile.title"/>
     </div>
   </div>
@@ -24,19 +25,23 @@
                 tiles: [
                     {
                         title: 'Obrazy',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg'
+                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        link: '/gallery/paintings'
                     },
                     {
                         title: 'Metryczki',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg'
+                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        link: '/gallery/birthstats'
                     },
                     {
                         title: 'Zakładki',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg'
+                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        link: '/gallery/bookmarks'
                     },
                     {
                         title: 'Indywidualne',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg'
+                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        link: '/gallery/individual'
                     },
                 ]
             }

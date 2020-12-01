@@ -46,9 +46,8 @@
     overflow: hidden;
 
     & img {
-        width: 450px;
-        height: 300px;
-        object-fit: cover;
+        width: 100%;
+        object-fit: fill;
         filter: brightness(85%);
         transition: all .8s cubic-bezier(.27,.53,.63,.95);
         background-color: grey;
@@ -60,10 +59,10 @@
     }
 
     & h3 {
-        font-size: 24px;
+        font-size: 2rem;
         font-weight: 300;
         pointer-events: none;
-        padding-top: 10px;
+        padding-top: 2rem;
     }
   }
   

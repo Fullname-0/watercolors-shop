@@ -1,8 +1,8 @@
 <template>
-    <div class="image-tile">
+    <nuxt-link :to="link" class="image-tile">
         <img :src="imageUrl" alt="Category tile">
         <h3>{{ title }}</h3>
-    </div>
+    </nuxt-link>
 </template>
 
 <script>
@@ -13,6 +13,10 @@
                 required: true,
             },
             title: {
+                type: String,
+                required: true,
+            },
+            link: {
                 type: String,
                 required: true,
             }

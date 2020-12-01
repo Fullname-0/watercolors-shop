@@ -6,30 +6,29 @@ import drawer from './Modules/drawer';
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            data: '',
+            paintings: []
         },
         mutations: {
-            setData(state, data) {
-                state.data = data;
-            },
+            setPaintings(state, paintings) {
+                state.paintings = paintings;
+            }
         },
         actions: {
             async nuxtServerInit(vuexContext, context) {
-                await context.$axios.$get('/catalogue/page/1')
+                await context.$axios.$get('/catalogue/paintings/')
                     .then(res => {
-                        vuexContext.commit('setData', res);
+                        vuexContext.commit('setPaintings', res);
                     })
                     .catch( e => console.log(e));
             },
-            setData(vuexContext, data) {
-                vuexContext.commit('setData', data);
-            }
         },
         getters: {
             paintings(state) {
-                return state.data.paintings;
+                return state.paintings;
             },
-
+            tags(state) {
+                return state.tags;
+            }
         },
         modules: {
             snackbar,
