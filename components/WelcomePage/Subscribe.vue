@@ -193,17 +193,30 @@
                 font-size: 1.5rem;
                 letter-spacing: 1px;
                 transition: all .5s;
-                
+
+                @include respond(phone) {
+                    transition: all .1s;
+                }
 
                 &:hover {
                     cursor: pointer;
                     background-color: $color-white;
                     color: $color-primary;
+
+                    @include respond(phone) {
+                        background-color: $color-primary;
+                        color: $color-white;
+                    }
                 }
 
                 &:active {
                     background-color: $color-primary;
                     color: $color-white;
+
+                    @include respond(phone) {
+                        background-color: $color-white;
+                        color: $color-primary;
+                    }
                 }
             }
         }

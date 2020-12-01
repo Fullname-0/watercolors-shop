@@ -91,6 +91,7 @@
             font-weight: 300;
             list-style-type: none;
             z-index: 1;
+            background-color: $color-white;
 
             @include respond(tab-port-small) {
                 position: fixed;
@@ -109,6 +110,11 @@
                 transition: all .5s;
 
                 &--expanded {
+                    right: 0;
+                }
+
+                &__container--expanded {
+                    position: fixed;
                     top: 0;
                     right: 0;
                 }

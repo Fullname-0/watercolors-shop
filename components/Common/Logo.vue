@@ -54,16 +54,15 @@
             font-size: 3.5rem;
         }
 
-        @include respond(phone) {
-            font-size: 2rem;
-            letter-spacing: .6rem;
-        }
-
         &--mini {
             font-size: 2.5rem;
 
             @include respond(tab-port-small) {
                 font-size: 2rem;
+            }
+
+            @include respond(phone) {
+                display: none;
             }
         }
     }

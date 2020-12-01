@@ -53,6 +53,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .sticky-header {
         position: fixed;
         transform: translateX(-5%);
@@ -77,16 +78,16 @@
             @include respond(tab-port-small) {
                 width: 90%;
             }
+
+            @include respond(phone) {
+                justify-content: center;
+            }
         }
 
         &__logo {
             height: 3rem;
             width: 12rem;
             cursor: pointer;
-
-            @include respond(phone) {
-                display: none;
-            }
         }
 
         &__list {
@@ -96,7 +97,13 @@
             font-weight: 300;
             list-style-type: none;
 
-                  &__notification {
+                @include respond(phone) {
+                    width: 90%;
+                    justify-content: space-between;
+                    font-size: 1.8rem;
+                }
+
+                &__notification {
                     padding-top: .2rem;
                     font-size: 1rem;
                     height: 1.5rem;
