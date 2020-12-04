@@ -174,9 +174,12 @@
                     transform-origin: 100% 50%;
                     transition: transform .5s cubic-bezier(.28,.38,0,.81);
 
+                    @media only screen and (min-width: 56.25em) {
+                            @include link-underscore;
+                    }
+
                     @include respond(tab-port-small) {
                         transform: scaleX(1);
-                        // @include link-underscore;
                     }
                 }
 

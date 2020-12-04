@@ -72,10 +72,17 @@
         display: flex;
         align-items: center;
 
-        .active-link::before,
-        .exact-link::before {
-            @include link-underscore;
+        @include respond(tab-port) {
+            justify-content: center;
         }
+
+        @media only screen and (min-width: 56.25em) {
+            .active-link::before,
+            .exact-link::before {
+                @include link-underscore;
+            }
+        }
+
     }
 
     .drop-menu {
