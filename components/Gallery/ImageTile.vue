@@ -29,7 +29,7 @@
     },
     methods: {
       onLoadProduct() {
-        this.$router.push('/gallery/' + this.id)
+        this.$router.push('/gallery/' + this.$route.params.category + '/' + this.id);
       }
     }
   }

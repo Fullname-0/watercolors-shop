@@ -24,7 +24,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        background-color: rgba($color-black, 0.8);
+        background-color: $modal-background;
         width: 100%;
         height: 100%;
         z-index: 999;

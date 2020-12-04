@@ -54,6 +54,10 @@
             font-size: 3.5rem;
         }
 
+        @include respond(phone) {
+            font-size: 2.5rem;
+        }
+
         &--mini {
             font-size: 2.5rem;
 

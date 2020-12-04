@@ -88,7 +88,7 @@
   .gallery {
       max-width: 80%;
       margin: auto;
-      padding: 10% 0;
+      padding: 5rem 0;
 
       &__heading {
           width: 100%;
