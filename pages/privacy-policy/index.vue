@@ -84,13 +84,16 @@
                 osobowych odpowiednią do zagrożeń oraz kategorii danych objętych ochroną, a w szczególności zabezpiecza 
                 dane przed ich udostępnieniem osobom nieupoważnionym, zabraniem przez osobę nieuprawnioną, przetwarzaniem z 
                 naruszeniem obowiązujących przepisów oraz zmianą, utratą, uszkodzeniem lub zniszczeniem.
+                <br>
                 2. Usługodawca udostępnia odpowiednie środki techniczne zapobiegające pozyskiwaniu i modyfikowaniu przez 
                 osoby nieuprawnione, danych osobowych przesyłanych drogą elektroniczną.
+                <br>
                 3. W sprawach nieuregulowanych niniejszą Polityką prywatności stosuje się odpowiednio postanowienia 
                 Regulaminu galerii Moje Akwarele, przepisy Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z 
                 dnia 27 kwietnia 2016 roku w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i 
                 w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO) oraz inne właściwe 
                 przepisy prawa polskiego.
+                <br>
                 4. Postanowienia niniejszej Polityki Prywatności wchodzą w życie z dniem 1 stycznia 2020 roku.
             </p>
         </div>
