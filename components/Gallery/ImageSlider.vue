@@ -112,10 +112,15 @@
         height: 50rem;
         background-color: $color-grey-light;
         position: relative;
+
+        @include respond(tab-land) {
+            width: 45rem;
+            height: 45rem;
+        }
         
         @include respond(tab-port) {
-            width: 40rem;
-            height: 40rem;
+            width: 35rem;
+            height: 35rem;
         }
 
         @include respond(tab-port-small) {

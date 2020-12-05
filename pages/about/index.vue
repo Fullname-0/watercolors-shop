@@ -1,19 +1,147 @@
 <template>
-  <div>
-  </div>
+    <div class="box">
+      <div class="box__main">
+         <div class="box__main__header--tab">
+            <h2>O mnie</h2>
+        </div>
+        <img class="box__main__img" src="~/static/img/about.jpg" alt="About"/>
+        <div class="box__main__details">
+            <div class="box__main__header--desktop">
+                <h2>O mnie</h2>
+            </div>
+            <p class="box__main__details__paragraph">
+              Mam na imię Natalia i&nbsp;zapraszam do&nbsp;świata Moich Akwareli.
+            </p>
+            <p class="box__main__details__paragraph">
+              Technika akwareli jest wyjątkowa z&nbsp;kilku powodów. Jest estetyczna i&nbsp;delikatna. Zwiewna, choć wymaga niezwykłej 
+              precyzji. Nie&nbsp;wybacza błędów domagając&nbsp;się cierpliwości i&nbsp;ogromnej troski.
+            </p>
+            <p class="box__main__details__paragraph">
+              W&nbsp;swoje prace angażuję nie tylko ręce, ale&nbsp;przede wszystkim serce i&nbsp;duszę. Każda akwarela jest unikatowa, 
+              jedyna w&nbsp;swoim rodzaju. Tworzę w&nbsp;oparciu o&nbsp;inspiracje czerpane z&nbsp;natury, głównie w&nbsp;palecie barw określanej jako 
+              kolory ziemi.
+            </p>
+            <p class="box__main__details__paragraph">
+              Oprócz tworzenia, misją Moich Akwareli jest również pomaganie. Organizuję licytacje moich prac, z&nbsp;których 
+              dochody przekazywane są na rzecz różnych fundacji.
+            </p>
+            <p class="box__main__details__paragraph">
+              Zapraszam do zapoznania się z&nbsp;galerią Moich Akwareli, w&nbsp;której znajdą Państwo obrazy, zakładki i&nbsp;metryczki. 
+              Jeśli nie&nbsp;znajdą Państwo upragnionego dzieła, wtedy zachęcam do&nbsp;kontaktu i&nbsp;złożenia indywidualnego zamówienia, 
+              dostosowanego do&nbsp;Państwa upodobań.
+            </p>
+        </div>     
+      </div>
+        <div class="box__line"/>
+        <p class="box__subtitle">
+          Można mnie znaleźć również tutaj:
+        </p>
+        <Subscribe/>
+    </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-    }
-  },
-  components: {
-  },
-}
+  import Subscribe from '~/components/WelcomePage/Subscribe.vue';
+  export default {
+    components: {
+      Subscribe
+    }  
+  }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
+    h2 {
+        font-size: 2.6rem;
+        font-weight: 300;
+        padding: 0 0 .1rem 0;
+    }
+
+    .subscribe-box {
+      padding-top: 3rem;
+      padding-bottom: 0;
+      width: 100%;
+    }
+
+    .box {
+      width: 80%;
+      margin: 10rem auto 5rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include respond(tab-port-small) {
+        margin-top: 5rem;
+      }
+
+      &__subtitle {
+        font-size: 2.5rem;
+        font-family: $font-primary-sc;
+        text-align: center;
+      }
+
+      &__line {
+        border-top: 1px solid $color-secondary-light;
+        width: 100%;
+        margin: 5rem auto;
+      }
+
+        &__main{
+          display: flex;
+          justify-content: space-between;
+          align-content: center;
+
+          &__header--tab {
+              display: none;
+          }
+
+          @include respond(tab-port-small) {
+              flex-direction: column;
+
+              &__header--tab {
+                  display: block;
+                  margin-bottom: 2rem;
+              }
+
+              &__header--desktop {
+                  display: none;
+              }
+          }
+
+          &__img {
+            width: 35rem;
+            height: 35rem;
+
+            @include respond(tab-port) {
+              width: 25rem;
+              height: 25rem;
+            }
+
+            @include respond(tab-port-small) {
+                width: 72vw;
+                height: 72vw;
+            }
+          }
+
+          &__details {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              margin-left: 10rem;
+
+              @include respond(tab-port-small) {
+                  margin: 0;
+                  padding-top: 5rem;
+              }
+
+              &__paragraph {
+                  text-align: justify;
+                  padding: 1rem 0;
+                  font-size: 1.8rem;
+              }
+          }
+        }
+      
+    }
 </style>
