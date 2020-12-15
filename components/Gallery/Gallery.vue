@@ -138,16 +138,22 @@
           width: 100%;
           height: auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
-          // gap: 5rem;
+          grid-template-columns: repeat(auto-fit, min(460px));
+          gap: 5rem;
           align-items: center; 
-          justify-items: center;
           justify-content: space-between;
           padding-top: 3rem;
-          // overflow: hidden;
 
-          @include respond(tab-land) {
+          @include respond(gallery-res) {
             justify-content: center;
+          }
+
+          @include respond(tab-port) {
+            grid-template-columns: repeat(auto-fit, min(380px));
+          }
+
+          @include respond(phone) {
+            grid-template-columns: repeat(auto-fit, min(280px));
           }
       }
 

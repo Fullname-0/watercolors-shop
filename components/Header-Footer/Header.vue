@@ -118,7 +118,6 @@
                     top: 0;
                     right: 0;
                 }
-
             }   
 
             &__notification {
@@ -133,7 +132,6 @@
                 top: 1.7rem;
                 right: -1rem;
                 z-index: 3;
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -276,16 +274,16 @@
                 }
             }
 
-            &__checkbox:checked + &__button &__icon{
+            &__checkbox:checked + &__button &__icon {
                 background-color: transparent;
             }
             
-            &__checkbox:checked + &__button &__icon::after{
+            &__checkbox:checked + &__button &__icon::after {
                 transform: rotate(135deg);
                 top: 0;
             }
 
-            &__checkbox:checked + &__button &__icon::before{
+            &__checkbox:checked + &__button &__icon::before {
                 transform: rotate(-315deg);
                 top: 0;
             }

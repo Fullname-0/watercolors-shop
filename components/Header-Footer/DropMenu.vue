@@ -98,7 +98,6 @@
         z-index: -1;
         flex-direction: column;
         align-items: stretch;
-
         box-shadow: 0 .5rem .5rem $color-grey-dark;
 
         &--mini {

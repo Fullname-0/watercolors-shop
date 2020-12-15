@@ -42,7 +42,6 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    width: 450px;
     overflow: hidden;
 
     & img {

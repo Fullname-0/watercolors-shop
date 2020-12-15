@@ -4,6 +4,7 @@
 0 - 600px: phone
 600 - 900px: tablet portrait
 900 - 1200px: tablet landscape
+1200 - 1348px: size for gallery
 1800px + : big desktop
 */
 
@@ -28,6 +29,12 @@
 
     @if $breakpoint == tab-land {
         @media only screen and (max-width: 75em) {
+            @content
+        };
+    }
+
+    @if $breakpoint == gallery-res {
+        @media only screen and (max-width: 84.3em) {
             @content
         };
     }
