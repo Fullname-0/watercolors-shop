@@ -224,7 +224,7 @@
           justify-content: space-between;
           padding-top: 3rem;
 
-          @include respond(tab-land) {
+          @include respond(gallery-res) {
             justify-content: center;
           }
 
