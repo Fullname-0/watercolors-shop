@@ -24,7 +24,7 @@ const createStore = () => {
         },
         getters: {
             paintings(state) {
-                return state.paintings;
+                return state.paintings.filter(painting => painting.mainImage && painting.mainImage.small);
             },
             tags(state) {
                 return state.tags;

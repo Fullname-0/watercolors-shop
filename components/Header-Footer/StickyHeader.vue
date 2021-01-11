@@ -5,8 +5,8 @@
                 <Logo :mini="true"/>
                 <ul class="sticky-header__list">
                     <DropMenu :mini="true"/>
-                    <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
-                    <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
+                    <li><nuxt-link to='/omnie' exact>O mnie</nuxt-link></li>
+                    <li><nuxt-link to='/kontakt' exact>Kontakt</nuxt-link></li>
                     <!--
                     <li>
                         <nuxt-link to='/basket' exact>Koszyk</nuxt-link>

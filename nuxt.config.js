@@ -62,6 +62,7 @@ export default {
         './assets/scss/mixins.scss',
         './assets/scss/variables.scss',
         './assets/scss/media.scss',
+        './assets/scss/main.scss'
       ]
     },
     /*

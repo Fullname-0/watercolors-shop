@@ -9,7 +9,7 @@
     <div class="gallery__box">
         <CategoryTile v-for="(tile, index) in tiles" 
             :key="index"
-            :imageUrl="tile.imageUrl" 
+            :imageUrl="`/img/${tile.imageUrl}`" 
             :link="tile.link"
             :title="tile.title"/>
     </div>
@@ -25,22 +25,22 @@
                 tiles: [
                     {
                         title: 'Obrazy',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        imageUrl: 'leaves.jpg',
                         link: '/gallery/paintings'
                     },
                     {
                         title: 'Metryczki',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        imageUrl: 'shelf.jpg',
                         link: '/gallery/birthstats'
                     },
                     {
                         title: 'Zakładki',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        imageUrl: 'books.jpg',
                         link: '/gallery/bookmarks'
                     },
                     {
                         title: 'Indywidualne',
-                        imageUrl: '/_nuxt/static/img/pic2.jpg',
+                        imageUrl: 'scorpio.jpg',
                         link: '/gallery/individual'
                     },
                 ]
@@ -67,6 +67,10 @@
               font-weight: 300;
               font-family: $font-primary-sc;
           }
+
+            & svg {
+                margin-top: .9rem;
+            }
       }
 
       &__box {

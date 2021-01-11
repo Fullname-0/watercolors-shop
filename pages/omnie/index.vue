@@ -13,13 +13,9 @@
               Mam na imię Natalia i&nbsp;zapraszam do&nbsp;świata Moich Akwareli.
             </p>
             <p class="box__main__details__paragraph">
-              Technika akwareli jest wyjątkowa z&nbsp;kilku powodów. Jest estetyczna i&nbsp;delikatna. Zwiewna, choć wymaga niezwykłej 
-              precyzji. Nie&nbsp;wybacza błędów domagając&nbsp;się cierpliwości i&nbsp;ogromnej troski.
-            </p>
-            <p class="box__main__details__paragraph">
-              W&nbsp;swoje prace angażuję nie tylko ręce, ale&nbsp;przede wszystkim serce i&nbsp;duszę. Każda akwarela jest unikatowa, 
-              jedyna w&nbsp;swoim rodzaju. Tworzę w&nbsp;oparciu o&nbsp;inspiracje czerpane z&nbsp;natury, głównie w&nbsp;palecie barw określanej jako 
-              kolory ziemi.
+              Moje zamiłowanie do poezji, piękna&nbsp;i natury zaklinam&nbsp;w każdym malowanym obrazie. Pragnę uchwycić&nbsp;w nich 
+              zmysłowość&nbsp;i subtelność. W&nbsp;każdym pociągnięciu pędzla uwieczniam swoją pasję, serce&nbsp;i duszę. Dążę&nbsp;do 
+              tego, aby&nbsp;patrzenie na Moje Akwarele stawało&nbsp;się nie tylko niezwykłym doznaniem estetycznym, ale również duchowym.
             </p>
             <p class="box__main__details__paragraph">
               Oprócz tworzenia, misją Moich Akwareli jest również pomaganie. Organizuję licytacje moich prac, z&nbsp;których 
@@ -65,7 +61,7 @@
 
     .box {
       width: 80%;
-      margin: 10rem auto 5rem auto;
+      margin: 5rem auto 5rem auto;
       display: flex;
       flex-direction: column;
       align-items: center;

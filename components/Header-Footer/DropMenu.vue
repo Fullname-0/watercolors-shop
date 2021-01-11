@@ -9,19 +9,19 @@
         <transition>
             <ul class="drop-menu" :class="{'drop-menu--mini':mini}" v-if="dropMenu" v-on-clickaway="away">
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery/paintings'>Obrazy</nuxt-link>
+                    <nuxt-link to='/galeria/obrazy'>Obrazy</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery/birthstats'>Metryczki</nuxt-link>
+                    <nuxt-link to='/galeria/metryczki'>Metryczki</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery/bookmarks'>Zakładki</nuxt-link>
+                    <nuxt-link to='/galeria/zakładki'>Zakładki</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery/individual'>Indywidualne</nuxt-link>
+                    <nuxt-link to='/galeria/indywidualne'>Indywidualne</nuxt-link>
                 </li>
                 <li class="drop-menu__item">
-                    <nuxt-link to='/gallery/all'>Wszystkie</nuxt-link>
+                    <nuxt-link to='/galeria/wszystkie'>Wszystkie</nuxt-link>
                 </li>
             </ul>
         </transition>

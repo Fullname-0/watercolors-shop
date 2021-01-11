@@ -3,8 +3,8 @@
         <div class="footer-box">
             <div class="footer-box__menu">
                 <ul>
-                    <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
-                    <li><nuxt-link to='/privacy-policy' exact>Polityka prywatności</nuxt-link></li>
+                    <li><nuxt-link to='/kontakt' exact>Kontakt</nuxt-link></li>
+                    <li><nuxt-link to='/polityka-prywatności' exact>Polityka prywatności</nuxt-link></li>
                     <li><nuxt-link to='/' exact>Regulamin</nuxt-link></li>
                 </ul>
             </div>

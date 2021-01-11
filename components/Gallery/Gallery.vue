@@ -11,14 +11,29 @@
         </div>
       </div>
       <div class="gallery__line--light"/>
+      <div class="gallery__checkbox__box">
+          <div class="gallery__checkbox">
+            <svg v-if="!available" class="gallery__checkbox__icon"  @click="check()">
+                <use xlink:href="~/static/icons/sprite.svg#icon-square"></use>
+            </svg>
+            <svg v-if="available" class="gallery__checkbox__icon"  :class="{'gallery__checkbox__checked' : available}" @click="check()">
+                <use xlink:href="~/static/icons/sprite.svg#icon-check-square"></use>
+            </svg>
+            <div :class="{'gallery__checkbox__checked' : available}" @click="check()">dostępne od ręki</div>
+        </div>
+      </div>
+      <div class="gallery__line--light"/>
       <div class="gallery__box">
         <ImageTile
           v-for="image in filteredImages"
           :key="image.id"
           :id="image.id"
           :title="image.title"
+          :width="image.width"
+          :height="image.height"
           :cost="image.price"
           :thumbnail="image.mainImage.small"
+          :toOrder="image.availability === 'TO_ORDER'"
         />
       </div>
     </div>
@@ -31,6 +46,7 @@
   export default {
     data() {
       return {
+        available: false,
         tags: [],
         selectedTags: [],
         filteredImages: this.images
@@ -38,12 +54,27 @@
     },
     methods: {
       select(tag) {
-        if(this.selectedTags.includes(tag)) {
-          this.selectedTags = this.selectedTags.filter(t => t != tag);
-        } else {
-          this.selectedTags.push(tag);
+        if(tag) {
+          if(this.selectedTags.includes(tag)) {
+            this.selectedTags = this.selectedTags.filter(t => t != tag);
+          } else {
+            this.selectedTags.push(tag);
+          }
         }
-        this.filteredImages = this.images.filter(img => this.selectedTags.every(t => img.tags.includes(t)));
+        this.filteredImages = this.images.filter(img => this.selectAvailable(img) && this.selectedTags.every(t => img.tags.includes(t)));
+        console.log(this.selectedTags);
+      },
+      check() {
+        this.available = !this.available;
+        this.select();
+      },
+      selectAvailable(image) {
+        console.log(this.available);
+        if(this.available) {
+          return image.availability === 'AVAILABLE';
+        } else {
+          return true;
+        }
       }
     },
     components: {
@@ -99,14 +130,58 @@
               font-size: 2.8rem;
               font-weight: 300;
           }
+
+      }
+
+      &__checkbox{
+        font-size: 1.8rem;
+        margin: 1rem auto;
+        color: $color-grey-medium;
+
+        display: flex;
+        align-items: center;
+
+        &__box {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          :hover {
+            cursor: pointer;
+            color: $color-primary;
+            font-weight: 700;
+          }
+        }
+
+        &__checked {
+          color: $color-primary;
+          font-weight: 700;
+        }
+
+        &__icon {
+          margin-right: 1rem;
+          margin-top: .2rem;
+          height: 1.9rem;
+          width: 1.9rem;
+          fill: currentColor;
+        }
       }
 
       &__tags-box {
         margin: auto;
         width: 60%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        padding: 3rem 0;
+        padding: 1rem 0;
+
+        @include respond(tab-port-small) {
+          padding: 1rem 0;
+        }
+
+        @include respond(phone) {
+          width: 100%;
+        }
       }
 
       &__line{
@@ -123,7 +198,7 @@
 
       &__tag {
         font-size: 1.8rem;
-        padding: 0 2rem;
+        padding: 1rem 2rem;
         color: $color-grey-medium;
         cursor: pointer;
 
@@ -132,22 +207,33 @@
           color: $color-grey-dark;
           font-weight: 700;
         }
+
+        @include respond(phone) {
+          padding: 0 1rem;
+        }
       }
 
       &__box {
           width: 100%;
           height: auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
-          // gap: 5rem;
-          align-items: center; 
+          grid-template-columns: repeat(3, 1fr);
+          gap: 4rem;
+          align-items: start;
           justify-items: center;
           justify-content: space-between;
           padding-top: 3rem;
-          // overflow: hidden;
 
           @include respond(tab-land) {
             justify-content: center;
+          }
+
+          @include respond(tab-port) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @include respond(phone) {
+            grid-template-columns: repeat(1, 1fr);
           }
       }
 

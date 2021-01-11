@@ -6,7 +6,7 @@
             </a>
             <div class="subscribe-box__newsletter">
                 <h3>Newsletter</h3>
-                <p>dołącz, jeżeli lubisz niespodzianki.</p>
+                <p>Dołącz do świata Moich Akwareli</p>
             </div>
             <div class="subscribe-box__input">
                 <input type="email" v-model="email" placeholder="Twój e-mail" required>

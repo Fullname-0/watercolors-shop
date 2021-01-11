@@ -8,8 +8,8 @@
         <transition>
             <ul class="header__list" :class="{'header__list--expanded':$store.getters.isDrawerExpanded}">
                 <DropMenu/>
-                <li><nuxt-link to='/about' exact>O mnie</nuxt-link></li>
-                <li><nuxt-link to='/contact' exact>Kontakt</nuxt-link></li>
+                <li><nuxt-link to='/omnie' exact>O mnie</nuxt-link></li>
+                <li><nuxt-link to='/kontakt' exact>Kontakt</nuxt-link></li>
                 <!--
                 <li>
                     <nuxt-link to='/basket' exact>Koszyk</nuxt-link>
