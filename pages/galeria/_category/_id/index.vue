@@ -13,7 +13,7 @@
             <p class="box__details__paragraph">Cena: <b>{{ loadedProduct.price }} zł</b></p>
             <p class="box__details__paragraph">{{ loadedProduct.description }}.</p>
             <div class="box__button">
-                <button type="submit">Zamów</button>
+                <button @click="orderRequest">Zamów</button>
             </div>
             <p class="box__details__comment">To nie hurtownia tylko wykwintna galeria... Jak chcesz obraz to napisz maila, a ja się zastanowię</p>
         </div>
@@ -28,6 +28,11 @@ export default {
         return {
             loadedProduct: [],
             productImages: [],
+        }
+    },
+    methods: {
+        orderRequest() {
+            this.$router.push(`/zamówienie?title=${this.loadedProduct.title}`)
         }
     },
     async asyncData({ params, $axios }) {

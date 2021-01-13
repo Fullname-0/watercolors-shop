@@ -28,6 +28,9 @@ const createStore = () => {
             },
             tags(state) {
                 return state.tags;
+            },
+            paintingByTitle: (state) => (title) => {
+                return state.paintings.find(element => element.title === title); 
             }
         },
         modules: {

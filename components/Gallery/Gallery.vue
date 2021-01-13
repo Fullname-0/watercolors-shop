@@ -62,7 +62,6 @@
           }
         }
         this.filteredImages = this.images.filter(img => this.selectAvailable(img) && this.selectedTags.every(t => img.tags.includes(t)));
-        console.log(this.selectedTags);
       },
       check() {
         this.available = !this.available;
