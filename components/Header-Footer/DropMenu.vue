@@ -7,20 +7,20 @@
             </svg>
         </div>
         <transition>
-            <ul class="drop-menu" :class="{'drop-menu--mini':mini}" v-if="dropMenu" v-on-clickaway="away">
-                <li class="drop-menu__item">
+            <ul class="drop-menu" :class="{'drop-menu--mini': mini,'drop-menu--drawer': drawer}" v-if="dropMenu" v-on-clickaway="away">
+                <li class="drop-menu__item" :class="{'drop-menu__item--drawer': drawer}"> 
                     <nuxt-link to='/galeria/obrazy'>Obrazy</nuxt-link>
                 </li>
-                <li class="drop-menu__item">
+                <li class="drop-menu__item" :class="{'drop-menu__item--drawer': drawer}">
                     <nuxt-link to='/galeria/metryczki'>Metryczki</nuxt-link>
                 </li>
-                <li class="drop-menu__item">
-                    <nuxt-link to='/galeria/zakładki'>Zakładki</nuxt-link>
+                <li class="drop-menu__item" :class="{'drop-menu__item--drawer': drawer}">
+                    <nuxt-link to='/galeria/zakladki'>Zakładki</nuxt-link>
                 </li>
-                <li class="drop-menu__item">
+                <li class="drop-menu__item" :class="{'drop-menu__item--drawer': drawer}">
                     <nuxt-link to='/galeria/indywidualne'>Indywidualne</nuxt-link>
                 </li>
-                <li class="drop-menu__item">
+                <li class="drop-menu__item" :class="{'drop-menu__item--drawer': drawer}">
                     <nuxt-link to='/galeria/wszystkie'>Wszystkie</nuxt-link>
                 </li>
             </ul>
@@ -39,6 +39,10 @@
         },
         props: {
             mini: {
+                type: Boolean,
+                default: false
+            },
+            drawer: {
                 type: Boolean,
                 default: false
             }
@@ -106,27 +110,27 @@
             top: 2.5rem;
         }
 
-        @include respond(tab-port-small) {
-            top: 2rem;
-            position: relative;
-            align-items: center;
-            background-color: transparent;
-            z-index:1;
-            box-shadow: none;
-        }
+        &--drawer{
+            @include respond(tab-port-small) {
+                top: 2rem;
+                position: relative;
+                align-items: center;
+                background-color: transparent;
+                z-index:1;
+                box-shadow: none;
+            }
 
-        @include respond(phone) {
-            top: 1rem;
-        }
+            @include respond(phone) {
+                top: 1rem;
+            }
+        }    
+
+
 
         &__item {
 
             &:hover {
                 background-color: $color-grey-light;
-                
-                @include respond(tab-port-small) {
-                    background-color: transparent;
-                }
             }
 
             &:last-child {
@@ -139,16 +143,26 @@
                 padding: 1rem 5rem 1rem 2rem;
                 display: block;
                 text-align: left;
-                
-                @include respond(tab-port-small) {
-                    padding: 1rem 0;
-                }
-
             }
 
-            a:active {
+            &--drawer {
+
                 @include respond(tab-port-small) {
-                    background-color: $color-secondary;
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+
+                    a:link,
+                    a:visited,
+                    a:active {
+                        padding: 1rem 0;
+                    }
+
+                    a:active {
+                        background-color: $color-secondary;
+                    }
+
                 }
             }
         }
@@ -180,10 +194,6 @@
             }
         }
 
-        @include respond(tab-port-small) {
-            display: none;
-            height: 0;
-        }
     }
 
 </style>

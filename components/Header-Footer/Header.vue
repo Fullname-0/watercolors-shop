@@ -7,7 +7,7 @@
         </label>
         <transition>
             <ul class="header__list" :class="{'header__list--expanded':$store.getters.isDrawerExpanded}">
-                <DropMenu/>
+                <DropMenu :drawer="true"/>
                 <li><nuxt-link to='/omnie' exact>O mnie</nuxt-link></li>
                 <li><nuxt-link to='/kontakt' exact>Kontakt</nuxt-link></li>
                 <!--
@@ -276,6 +276,9 @@
 
             &__checkbox:checked + &__button &__icon {
                 background-color: transparent;
+                position: fixed;
+                                top: 3rem;
+                right: 5%;
             }
             
             &__checkbox:checked + &__button &__icon::after {

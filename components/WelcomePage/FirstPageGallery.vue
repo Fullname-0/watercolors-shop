@@ -26,22 +26,22 @@
                     {
                         title: 'Obrazy',
                         imageUrl: 'leaves.jpg',
-                        link: '/gallery/paintings'
+                        link: '/galeria/obrazy'
                     },
                     {
                         title: 'Metryczki',
                         imageUrl: 'shelf.jpg',
-                        link: '/gallery/birthstats'
+                        link: '/galeria/metryczki'
                     },
                     {
                         title: 'Zakładki',
                         imageUrl: 'books.jpg',
-                        link: '/gallery/bookmarks'
+                        link: '/galeria/zakladki'
                     },
                     {
                         title: 'Indywidualne',
                         imageUrl: 'scorpio.jpg',
-                        link: '/gallery/individual'
+                        link: '/galeria/indywidualne'
                     },
                 ]
             }

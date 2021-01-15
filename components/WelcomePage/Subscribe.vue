@@ -45,18 +45,24 @@
             },
             onError() {
                 this.$store.commit('closeModal');
-                this.$notifier.showMessage({content: 'Spróbuj ponownie później'});
+                this.$notifier.showMessage({content: 'Wystąpił błąd. Spróbuj ponownie później'});
             },
             async onSuccess() {
-                // await this.$axios.$post('/mail/newsletter?email=' + this.email);
-                setTimeout(() => {
-                    this.$store.commit('closeModal');
-                    this.$notifier.showMessage({content: 'Dziękujemy za dołączenie do newslettera'});
-                }, 900);
+                await this.$axios.$post('/mail/newsletter/join?email=' + this.email)
+                    .then(() => {
+                        setTimeout(() => {
+                            this.$store.commit('closeModal');
+                            this.$notifier.showMessage({content: 'Dziękujemy za dołączenie do newslettera'});
+                        }, 900);
+                    })
+                    .catch(error => {
+                        this.$store.commit('closeModal');
+                        this.$notifier.showMessage({content: 'Wystąpił błąd. Spróbuj ponownie później'});
+                    })
             },
             onExpired() {
                 this.$store.commit('closeModal');
-                this.$notifier.showMessage({content: 'Spróbuj ponownie później'});
+                this.$notifier.showMessage({content: 'Wystąpił błąd. Spróbuj ponownie później'});
             }
         },   
     }

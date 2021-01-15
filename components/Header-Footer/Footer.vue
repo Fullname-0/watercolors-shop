@@ -5,7 +5,7 @@
                 <ul>
                     <li><nuxt-link to='/kontakt' exact>Kontakt</nuxt-link></li>
                     <li><nuxt-link to='/polityka-prywatności' exact>Polityka prywatności</nuxt-link></li>
-                    <li><nuxt-link to='/' exact>Regulamin</nuxt-link></li>
+                    <!-- <li><nuxt-link to='/' exact>Regulamin</nuxt-link></li> -->
                 </ul>
             </div>
             <div class="footer-box__logo">
@@ -60,7 +60,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
 
             @include respond(phone) {
                 flex-direction: row;
@@ -71,9 +71,14 @@
                 list-style: none;
 
                 &:nth-child(2) {
-                    @include respond(tab-port) {
-                        padding: 1.5rem 0;
+                    padding-top: 1rem;
+
+                    @include respond(phone) {
+                        padding: 0 0;
                     }
+                }
+
+                &:nth-child(1) {
 
                     @include respond(phone) {
                         padding: 0 2rem;

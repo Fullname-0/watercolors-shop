@@ -23,6 +23,8 @@ export default {
         getGDPR() {
             if (process.browser) {
                 return localStorage.getItem("GDPR:accepted", true);
+            } else {
+                return false;
             }
         },
         close() {
@@ -32,7 +34,7 @@ export default {
             }
         }
     },
-    created() {
+    mounted() {
         if (!this.getGDPR() === true) {
             this.isOpen = true;
         }
