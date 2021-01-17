@@ -29,6 +29,7 @@
     .image-tile {
         position: relative;
         height: 30rem;
+        width: 100%;
         overflow: hidden;
 
         @include respond(phone) {

@@ -34,7 +34,6 @@
 
       img {
           width: 100%;
-          height: 40vw;
           transform: scale(1) scaleY(1.01);
           transition: all .8s cubic-bezier(.27,.53,.63,.95);
 

@@ -24,7 +24,7 @@
 
         setTimeout(() => {
           this.show = false;
-        }, 5000);
+        }, 7000);
       });
       
 
