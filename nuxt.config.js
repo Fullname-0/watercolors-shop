@@ -8,6 +8,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
+      { rel: 'icon', type: 'image/svg+xml', href: '/img/favicon.svg' },
       { href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap', rel: 'stylesheet' },
       { href: 'https://fonts.googleapis.com/css2?family=Cormorant:wght@300;600;700&display=swap', rel: 'stylesheet' },
       { href: 'https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap', rel: 'stylesheet' },
@@ -52,7 +53,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.API_URL || 'https://api.mojeakwarele.pl', // Used as fallback if no runtime config is provided
+    baseURL: process.env.SERVER || 'https://api.mojeakwarele.pl', // Used as fallback if no runtime config is provided
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

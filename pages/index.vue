@@ -18,4 +18,4 @@
       Subscribe,
     },
   }
-</script>
+</script> 

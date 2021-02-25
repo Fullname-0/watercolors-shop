@@ -15,7 +15,20 @@
             <div class="box__button">
                 <button @click="orderRequest">Zamów</button>
             </div>
-            <p class="box__details__comment">To nie hurtownia tylko wykwintna galeria... Jak chcesz obraz to napisz maila, a ja się zastanowię</p>
+            <p class="box__details__comment">
+                W&nbsp;odpowiedzi otrzymają Państwo szczegóły związane z&nbsp;realizacją 
+                zamówienia oraz&nbsp;płatnością. Czas realizacji zamówienia akwareli dostępnych od&nbsp;ręki wynosi do&nbsp;14&nbsp;dni, 
+                akwareli na&nbsp;zamówienie według indywidualnych ustaleń. Akwarele na&nbsp;zamówienie wykonane będą 
+                według wzoru, ale&nbsp;nie&nbsp;będą identyczne. Każda akwarela jest&nbsp;unikatowa. Zamówienia
+                personalizowane nie&nbsp;podlegają zwrotom.
+                <br>
+                <br>
+                Kolory rzeczywiste mogą różnić się&nbsp;od&nbsp;tych&nbsp;na&nbsp;zdjęciu w&nbsp;zależności od&nbsp;ustawień 
+                ekranu.
+                <br>
+                <br>    
+                W&nbsp;razie jakichkolwiek pytań zapraszam do&nbsp;ich&nbsp;zadawania przez&nbsp;formularz 
+                zamówienia/kontaktu.</p>
         </div>
     </div>
 </template>
@@ -142,7 +155,7 @@ export default {
                 text-align: justify;
                 color: $color-grey-dark;
                 font-size: 1.6rem;
-                padding-top: .5rem;
+                margin-top: .5rem;
             }
 
             &__paragraph {
